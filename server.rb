@@ -13,19 +13,24 @@ while socket = server.accept
   end
 
   response = "Hello World! #{Time.now}\n"
-  if params.key?('dice') and params['dice']
+  if params.key?('dice')
     total = 0
     details = ""
     num = params['dice'][0].to_i
     if num == 0
         response = "You need to specify a number greater than zero\n"
     else
+      if params.key?('sides')
+        sides = params['sides'][0].to_i
+      else
+        sides = 6
+      end
       num.times do |count|
-        roll = 1 + rand(6)
+        roll = 1 + rand(sides)
         total += roll
         details << "[#{roll}] "
       end
-      response = "I rolled a D6 #{num} times and totaled #{total}\n"
+      response = "I rolled a D#{sides} #{num} times and totaled #{total}\n"
       if params.key?('details') and params['details'][0].downcase == "true"
         response << "Individual rolls: #{details}\n" 
       end
