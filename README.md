@@ -11,6 +11,16 @@ You can browse to `http://localhost:12345` to see the basic **Hello World! <Curr
 
 A typical url will be made up by [protocol:] // [hostname] [:port] [abs_path] [ "?" query]
 
+The protocol will usually be `http:` (HyperText Transfer Protocol), or `https:` (HyperText Transfer Protocol Secure). Usually, HTTP uses port 80 to send and receive packets over the web, while HTTPS uses port 443. Both HTTP and HTTPS use the TCP (Transmission Control Protocol). 
+
+Some differences between HTTP and HTTPS include:
+* URL in address bar.
+* HTTP is unsecured while HTTPS is secured.
+* HTTP opeates at application layer and HTTPS operates at the transport layer. For more information, take a look at the [OSI Model](https://www.tutorialspoint.com/ipv4/ipv4_osi_model.htm).
+* You need a signed SSL certificate for HTTPS.
+* HTTP doesn't require domain validation, where as HTTPS requires it.
+* There is no encryption with HTTP, and HTTPS encrypts the data before sending. 
+
 # HTTP GET
 
 To do an HTTP GET, you can just run `curl URL`.
